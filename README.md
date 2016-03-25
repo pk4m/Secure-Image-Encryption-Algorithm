@@ -20,3 +20,12 @@ A Secure Image Encryption Algorithm Based on Rubik's Cube Principle
 
 ###Decrypted Image
 ![alt tag](images/dandelion-dec.jpg?raw=true)
+
+###Original Image
+![alt tag](images/black.jpg?raw=true)
+
+###Encrypted Image
+![alt tag](images/black-enc.jpg?raw=true)
+
+###Decrypted Image
+![alt tag](images/black-dec.jpg?raw=true)
