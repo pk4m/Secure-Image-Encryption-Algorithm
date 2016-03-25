@@ -1,4 +1,4 @@
-
+package matrix;
 /**
  * 
  * @author Pandurang Kamath
@@ -7,18 +7,18 @@
  */
 public class Scrambler {
 
-	private int[][] inputImage;
-	private int[] kR;
-	private int[] kC;
+	private byte[][] inputImage;
+	private byte[] kR;
+	private byte[] kC;
 	private int M, N;
 
 	/**
 	 * 
-	 * @param iImage input image
+	 * @param iImage input matrix
 	 * @param kR secret key for rows
 	 * @param kC secret key for columns
 	 */
-	public Scrambler(int[][] iImage, int[] kR, int[] kC) {
+	public Scrambler(byte[][] iImage, byte[] kR, byte[] kC) {
 		inputImage = iImage;
 		this.kR = kR;
 		this.kC = kC;
@@ -30,7 +30,7 @@ public class Scrambler {
 	 * Scrambles the input matrix
 	 * @return the scrambled matrix
 	 */
-	public int[][] scramble() {
+	public byte[][] scramble() {
 
 		// scramble rows
 		for (int i = 0; i < M; i++) {
@@ -65,7 +65,7 @@ public class Scrambler {
 	 * Unscrambles the input matrix
 	 * @return the unscrambled matrix
 	 */
-	public int[][] unscramble() {
+	public byte[][] unscramble() {
 
 		// unscramble columns
 		for (int j = 0; j < N; j++) {
@@ -102,7 +102,7 @@ public class Scrambler {
 	 */
 	private void shiftColumnDown(int colNum) {
 		int shiftBy = Math.abs(kC[colNum] % M);
-		int[] temp = new int[M];
+		byte[] temp = new byte[M];
 		for (int i = 0; i < M; i++) {
 			temp[i] = inputImage[(i - shiftBy + M) % M][colNum];
 		}
@@ -118,7 +118,7 @@ public class Scrambler {
 	 */
 	private void shiftColumnUp(int colNum) {
 		int shiftBy = Math.abs(kC[colNum] % M);
-		int[] temp = new int[M];
+		byte[] temp = new byte[M];
 		for (int i = 0; i < M; i++) {
 			temp[i] = inputImage[(i + shiftBy) % M][colNum];
 		}
@@ -134,7 +134,7 @@ public class Scrambler {
 	 */
 	private void shiftRowLeft(int rowNum) {
 		int shiftBy = Math.abs(kR[rowNum] % N);
-		int[] temp = new int[N];
+		byte[] temp = new byte[N];
 		for (int i = 0; i < N; i++) {
 			temp[i] = inputImage[rowNum][(i + shiftBy) % N];
 		}
@@ -150,7 +150,7 @@ public class Scrambler {
 	 */
 	private void shiftRowRight(int rowNum) {
 		int shiftBy = Math.abs(kR[rowNum] % N);
-		int[] temp = new int[N];
+		byte[] temp = new byte[N];
 		for (int i = 0; i < N; i++) {
 			temp[i] = inputImage[rowNum][(i - shiftBy + N) % N];
 		}

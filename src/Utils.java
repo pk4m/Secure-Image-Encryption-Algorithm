@@ -1,3 +1,4 @@
+
 import java.security.SecureRandom;
 
 /**
@@ -14,9 +15,9 @@ public class Utils {
 	 * @param array The array to rotate
 	 * @return The rotated array
 	 */
-	public static byte[] rotate(byte[] array) {
+	public static int[] rotate(int[] array) {
 		int len = array.length;
-		byte[] r = new byte[len];
+		int[] r = new int[len];
 		for (int i = 0; i < len; i++) {
 			r[len - i - 1] = array[i];
 		}
@@ -28,58 +29,30 @@ public class Utils {
 	 * @param inputImage The array to be copied
 	 * @return The copied array
 	 */
-	public static byte[][] copy(byte[][] inputImage) {
-		byte[][] newArray = new byte[inputImage.length][];
+	public static int[][] copy(int[][] inputImage) {
+		int[][] newArray = new int[inputImage.length][];
 		for (int i = 0; i < inputImage.length; i++) {
-			newArray[i] = new byte[inputImage[i].length];
+			newArray[i] = new int[inputImage[i].length];
 			for (int j = 0; j < inputImage[i].length; j++) {
 				newArray[i][j] = inputImage[i][j];
 			}
 		}
 		return newArray;
 	}
-
-	/**
-	 * Generates a random two dimensional matrix (to serve as an input image)
-	 * @param rows Number of rows
-	 * @param cols Number of columns
-	 * @param bound Max value 
-	 * @return Randomly generated two dimensional matrix
-	 */
-	public static byte[][] generateImage(int rows, int cols, int bound) {
-		byte[][] image = new byte[rows][cols];
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < cols; j++) {
-				image[i][j] = (byte) rand.nextInt(bound);
-			}
-		}
-		return image;
-	}
-
+	
 	/**
 	 * Generates random one dimensional array
 	 * @param size The size of the array
 	 * @param bound Max value
 	 * @return Randomly generated one dimensional array
 	 */
-	public static byte[] generateRandomArray(int size, int bound) {
-		byte[] array = new byte[size];
+	public static int[] generateRandomArray(int size, int bound) {
+		int[] array = new int[size];
 		for (int i = 0; i < size; i++) {
-			array[i] = (byte) rand.nextInt(bound);
+			array[i] = rand.nextInt(bound);
 		}
 		return array;
 	}
 	
-	/**
-	 * Prints a two dimensional matrix
-	 * @param inputImage 
-	 */
-	public static void printArray(byte[][] inputImage) {
-		for (int i = 0; i < inputImage.length; i++) {
-			for (int j = 0; j < inputImage[i].length; j++) {
-				System.out.print(inputImage[i][j] + " ");
-			}
-			System.out.println();
-		}
-	}
+	
 }
